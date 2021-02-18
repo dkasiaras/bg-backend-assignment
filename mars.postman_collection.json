@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "438ec7ca-7654-4ab0-992b-bbaf967591c9",
+		"name": "mars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "units",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZW9yZ2UiLCJleHAiOjE2MTM2NjExNzgsImlhdCI6MTYxMzY1MDM3OH0.zMzrrR4QyCfwaWS9KabYUgCMsycLqOZFkNbPOFtgkuf10PnOCCeMAnHAUQB9BkqGA7izRj6BA62-BpWCQ2A5UA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/units?title=Volos&region=Thessalia&sortByReviews=desc&page=0&pageSize=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"units"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Volos"
+						},
+						{
+							"key": "region",
+							"value": "Thessalia"
+						},
+						{
+							"key": "sortByReviews",
+							"value": "desc"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAccessToken",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"george\",\n    \"password\": \"password1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUnitById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZW9yZ2UiLCJleHAiOjE2MTM2NjExNzgsImlhdCI6MTYxMzY1MDM3OH0.zMzrrR4QyCfwaWS9KabYUgCMsycLqOZFkNbPOFtgkuf10PnOCCeMAnHAUQB9BkqGA7izRj6BA62-BpWCQ2A5UA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/units/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"units",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateReviw",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJnZW9yZ2UiLCJleHAiOjE2MTM2NjExNzgsImlhdCI6MTYxMzY1MDM3OH0.zMzrrR4QyCfwaWS9KabYUgCMsycLqOZFkNbPOFtgkuf10PnOCCeMAnHAUQB9BkqGA7izRj6BA62-BpWCQ2A5UA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rate\": 5,\n    \"comment\": \"test comment\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/units/2/review",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"units",
+						"2",
+						"review"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

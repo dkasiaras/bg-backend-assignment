@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/mars-real-estate?useSSL=false
+    username: user
+    password: pwd
+    initialization-mode: always
+
+  jpa:
+    show-sql: false
+    hibernate:
+      use-new-id-generator-mappings: false
+      ddl-auto: validate
+      naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        id.new_generator_mappings: true
+        format_sql: true
+
+jwt:
+  secret: secret-jwt
+
+app:
+  sql:
+    user-query: SELECT USERNAME, PASSWORD, ENABLE FROM USERS WHERE USERNAME = ?
+    authorities-query: SELECT U.USERNAME,A.AUTHORITY FROM USERS U INNER JOIN USERS_AUTHORITIES UA ON(U.USER_ID=UA.USER_ID) INNER JOIN AUTHORITIES A ON(UA.AUTHORITY_ID= A.AUTHORITY_ID) WHERE U.USERNAME=?
+
